@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Quiz Espagnol – Style Moderne</title>
+  <title>Quizz Espagnol – Style Moderne</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -164,7 +164,7 @@
     }
 
     /* Carte de quiz */
-    .quiz-card {
+    .quizz-card {
       background: white;
       border-radius: var(--border-radius);
       padding: 25px 20px;
@@ -177,7 +177,7 @@
     }
 
     /* Dark mode quiz card */
-    body.dark-mode .quiz-card {
+    body.dark-mode .quizz-card {
       background: rgb(59, 59, 59);
       border: 1px solid var(--gray-200);
     }
@@ -547,7 +547,7 @@
         font-size: 1.5rem;
       }
       
-      .quiz-card {
+      .quizz-card {
         padding: 20px 15px;
       }
       
@@ -600,7 +600,7 @@
         padding: 12px;
       }
       
-      .quiz-card {
+      .quizz-card {
         padding: 18px 12px;
       }
       
@@ -643,7 +643,7 @@
 <body>
   <div class="app-container">
     <header>
-      <h1><i class="fas fa-language"></i> Quiz Espagnol</h1>
+      <h1><i class="fas fa-language"></i> Quizz Espagnol</h1>
       <p>Maîtrisez le vocabulaire espagnol</p>
       <!-- Dark mode toggle -->
       <div class="dark-mode-toggle">
@@ -667,7 +667,7 @@
       </div>
       
       <!-- Carte de quiz -->
-      <div class="quiz-card">
+      <div class="quizz-card">
         <div class="word-display">
           <p id="promptLabel">Traduisez ce mot :</p>
           <p id="currentWord">...</p>
@@ -695,10 +695,10 @@
       <!-- Contrôles -->
       <div class="controls">
         <button id="newSeriesBtn">
-          <i class="fas fa-redo"></i> Nouveau Quiz
+          <i class="fas fa-redo"></i> Nouveau Quizz
         </button>
         <div class="series-info">
-          Quiz de <span id="totalWords">10</span> questions
+          Quizz de <span id="totalWords">10</span> questions
         </div>
       </div>
       
@@ -1102,7 +1102,7 @@
      ***************************************************/
     function showNextWord() {
       if (currentIndex >= currentSeries.length) {
-        currentWordEl.textContent = "Quiz terminé !";
+        currentWordEl.textContent = "Quizz terminé !";
         optionsContainer.innerHTML = "";
         feedbackEl.textContent = `Score final : ${correctCount}/${totalWordsInSeries}`;
         feedbackEl.style.color = "var(--primary)";
