@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Quiz Espagnol – Style Moderne</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4361ee;
+      --primary-dark: #3a56d4;
+      --secondary: #7209b7;
+      --success: #06d6a0;
+      --danger: #ef476f;
+      --warning: #ffd166;
+      --dark: #1a1a2e;
+      --light: #f8f9fa;
+      --gray-100: #f1f3f9;
+      --gray-200: #e2e8f0;
+      --gray-300: #cbd5e0;
+      --gray-500: #a0aec0;
+      --gray-700: #4a5568;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --border-radius: 16px;
+      --transition: all 0.3s ease;
+    }
+
+    /* Dark mode variables */
+    .dark-mode {
+      --primary: #43d4ee;
+      --primary-dark: #3abdd4;
+      --secondary: #9409b7;
+      --success: #1dff7b;
+      --danger: #ff2828;
+      --warning: #ffd166;
+      --dark: #ffffff;
+      --light: #3b3b3b;
+      --gray-100: #303030;
+      --gray-200: #ffffff;
+      --gray-300: #ffffff;
+      --gray-500: #ffffff;
+      --gray-700: #ffffff;
+      --shadow: 0 4px 6px -1px rgba(211, 211, 211, 0.103), 0 2px 4px -1px rgba(0, 0, 0, 0);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0), 0 4px 6px -2px rgba(255, 255, 255, 0);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+      color: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 16px;
+      line-height: 1.5;
+    }
+
+    /* Apply dark mode styles */
+    body.dark-mode {
+      background: linear-gradient(135deg, #2e2e2e 0%, #0f0f0f 100%);
+      color: var(--dark);
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 32px);
+    }
+
+    /* Dark mode app container */
+    body.dark-mode .app-container {
+      background: rgb(58, 58, 58);
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative; /* Pour positionner le toggle */
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-top: 5px;
+    }
+
+    main {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Statistiques */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .stat-item {
+      background: var(--gray-100);
+      border-radius: var(--border-radius);
+      padding: 12px 20px;
+      text-align: center;
+      flex: 1;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    /* Dark mode stats */
+    body.dark-mode .stat-item {
+      background: var(--gray-100);
+    }
+
+    .stat-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .stat-item span {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+      line-height: 1;
+    }
+
+    .stat-item p {
+      font-size: 0.8rem;
+      color: var(--gray-700);
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+
+    /* Carte de quiz */
+    .quiz-card {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 25px 20px;
+      margin-bottom: 25px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--gray-200);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Dark mode quiz card */
+    body.dark-mode .quiz-card {
+      background: rgb(59, 59, 59);
+      border: 1px solid var(--gray-200);
+    }
+
+    .word-display {
+      text-align: center;
+      margin-bottom: 25px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    #promptLabel {
+      font-size: 1rem;
+      color: var(--gray-500);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    #currentWord {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 15px 0;
+      word-break: break-word;
+    }
+
+    /* Options de réponse */
+    .options-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .option-btn {
+      padding: 16px 10px;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 2px solid var(--gray-200);
+      background: white;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+      box-shadow: var(--shadow);
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark); /* S'assure que le texte est visible */
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px -2px rgba(0, 0, 0, 0.1);
+    }
+
+    .option-btn.selected {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .option-btn.correct {
+      background-color: var(--success);
+      color: white;
+      border-color: var(--success);
+    }
+
+    .option-btn.incorrect {
+      background-color: var(--danger);
+      color: white;
+      border-color: var(--danger);
+    }
+
+    .option-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    /* Dark mode options */
+    body.dark-mode .option-btn {
+      background: rgb(58, 58, 58);
+      border: 2px solid var(--gray-200);
+      color: var(--dark);
+    }
+
+    body.dark-mode .option-btn.selected {
+      background-color: var(--primary);
+      color: rgb(58, 58, 58);
+    }
+
+    body.dark-mode .option-btn.correct {
+      background-color: var(--success);
+      color: rgb(59, 59, 59);
+    }
+
+    body.dark-mode .option-btn.incorrect {
+      background-color: var(--danger);
+      color: rgb(58, 58, 58);
+    }
+
+    #feedback {
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: center;
+      min-height: 1.5em;
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: var(--border-radius);
+    }
+
+    /* Progression */
+    .progress-container {
+      margin: 20px 0;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background-color: var(--gray-200);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+      width: 0%;
+      transition: width 0.5s ease;
+      border-radius: 10px;
+    }
+
+    .progress-text {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--gray-700);
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    /* Contrôles */
+    .controls {
+      text-align: center;
+      margin: 25px 0;
+      position: relative;
+    }
+
+    #newSeriesBtn {
+      padding: 14px 25px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: 2px solid var(--primary);
+      background: transparent;
+      color: var(--primary);
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    #newSeriesBtn:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .series-info {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: var(--gray-700);
+    }
+
+    .series-info span {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* Historique */
+    .history-container {
+      margin-top: 25px;
+      background: var(--gray-100);
+      border-radius: var(--border-radius);
+      padding: 15px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .history-container h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: var(--primary);
+      font-size: 1.2rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .history-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      overflow-y: auto;
+      max-height: 150px;
+      padding: 5px;
+    }
+
+    .history-grid p {
+      background: white;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      margin: 0;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      word-break: break-word;
+      color: var(--dark); /* S'assure que le texte est visible */
+    }
+
+    .history-grid p.correct {
+      border-left: 3px solid var(--success);
+    }
+
+    .history-grid p.incorrect {
+      border-left: 3px solid var(--danger);
+    }
+
+    /* Dark mode history */
+    body.dark-mode .history-container {
+      background: var(--gray-100);
+    }
+
+    body.dark-mode .history-grid p {
+      background: rgb(58, 58, 58);
+      color: var(--dark);
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: var(--gray-100);
+      color: var(--gray-700);
+      font-size: 0.8rem;
+    }
+
+    footer span {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* Dark mode footer */
+    body.dark-mode footer {
+      background: var(--gray-100);
+      color: var(--gray-700);
+    }
+
+    body.dark-mode footer span {
+      color: var(--primary);
+    }
+
+    /* Animation pour le feedback */
+    .fade {
+      animation: fadeEffect 0.6s;
+    }
+
+    @keyframes fadeEffect {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Toggle switch styles */
+    .dark-mode-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--primary);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    /* Responsive mobile */
+    @media (max-width: 480px) {
+      body {
+        padding: 12px;
+      }
+      
+      .app-container {
+        min-height: calc(100vh - 24px);
+      }
+      
+      header {
+        padding: 18px 15px;
+      }
+      
+      header h1 {
+        font-size: 1.3rem;
+      }
+      
+      main {
+        padding: 15px;
+      }
+      
+      .stats {
+        gap: 10px;
+      }
+      
+      .stat-item {
+        padding: 10px 15px;
+      }
+      
+      .stat-item span {
+        font-size: 1.5rem;
+      }
+      
+      .quiz-card {
+        padding: 20px 15px;
+      }
+      
+      #currentWord {
+        font-size: 1.8rem;
+      }
+      
+      .options-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      
+      .option-btn {
+        padding: 14px 10px;
+        font-size: 1rem;
+        min-height: 55px;
+      }
+      
+      #feedback {
+        font-size: 1rem;
+        padding: 12px;
+      }
+      
+      .history-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        max-height: 130px;
+      }
+      
+      .history-grid p {
+        font-size: 0.75rem;
+        padding: 8px 10px;
+      }
+    }
+
+    /* iPhone X et modèles similaires */
+    @media (max-width: 414px) and (max-height: 896px) {
+      :root {
+        --border-radius: 14px;
+      }
+      
+      header {
+        padding: 16px 12px;
+      }
+      
+      header h1 {
+        font-size: 1.25rem;
+      }
+      
+      main {
+        padding: 12px;
+      }
+      
+      .quiz-card {
+        padding: 18px 12px;
+      }
+      
+      #currentWord {
+        font-size: 1.7rem;
+      }
+      
+      .option-btn {
+        padding: 12px 8px;
+        font-size: 0.95rem;
+        min-height: 50px;
+      }
+    }
+
+    /* Très petits écrans */
+    @media (max-width: 360px) {
+      .stat-item {
+        padding: 8px 12px;
+      }
+      
+      .stat-item span {
+        font-size: 1.3rem;
+      }
+      
+      .stat-item p {
+        font-size: 0.7rem;
+      }
+      
+      #currentWord {
+        font-size: 1.6rem;
+      }
+      
+      .option-btn {
+        min-height: 48px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1><i class="fas fa-language"></i> Quiz Espagnol</h1>
+      <p>Maîtrisez le vocabulaire espagnol</p>
+      <!-- Dark mode toggle -->
+      <div class="dark-mode-toggle">
+        <label class="switch">
+          <input type="checkbox" id="darkModeToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
+    <main>
+      <!-- Section des statistiques -->
+      <div class="stats">
+        <div class="stat-item">
+          <span id="correctCount">0</span>
+          <p>Correct</p>
+        </div>
+        <div class="stat-item">
+          <span id="wrongCount">0</span>
+          <p>Incorrect</p>
+        </div>
+      </div>
+      
+      <!-- Carte de quiz -->
+      <div class="quiz-card">
+        <div class="word-display">
+          <p id="promptLabel">Traduisez ce mot :</p>
+          <p id="currentWord">...</p>
+        </div>
+        
+        <!-- Barre de progression -->
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="progress-text">
+            <span>Question <span id="currentQuestion">0</span></span>
+            <span><span id="totalQuestions">0</span> au total</span>
+          </div>
+        </div>
+        
+        <!-- Options de réponse -->
+        <div class="options-container" id="optionsContainer">
+          <!-- Les options seront générées ici -->
+        </div>
+        
+        <div id="feedback"></div>
+      </div>
+      
+      <!-- Contrôles -->
+      <div class="controls">
+        <button id="newSeriesBtn">
+          <i class="fas fa-redo"></i> Nouveau Quiz
+        </button>
+        <div class="series-info">
+          Quiz de <span id="totalWords">10</span> questions
+        </div>
+      </div>
+      
+      <!-- Historique des réponses -->
+      <div class="history-container">
+        <h2><i class="fas fa-history"></i> Historique</h2>
+        <div id="history" class="history-grid">
+          <!-- Les réponses validées s'afficheront ici -->
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>Total mots : <span id="dbWordCount">0</span></p>
+    </footer>
+  </div>
+  <script>
+    /***************************************************
+     * 1) Base de données
+     ***************************************************/
+    const wordsDB = [
+      { es: "yo", fr: "je" },
+      { es: "hablo", fr: "parle" },
+      { es: "casa", fr: "maison" },
+      { es: "hola", fr: "bonjour" },
+      { es: "adios", fr: "au revoir" },
+      { es: "gracias", fr: "merci" },
+      { es: "por favor", fr: "s'il te plait" },
+      { es: "amigo", fr: "ami" },
+      { es: "comer", fr: "manger" },
+      { es: "leer", fr: "lire" },
+      { es: "escuela", fr: "ecole" },
+      { es: "libro", fr: "livre" },
+      { es: "lapiz", fr: "crayon" },
+      { es: "hombre", fr: "homme" },
+      { es: "mujer", fr: "femme" },
+      { es: "nino", fr: "enfant" },
+      { es: "agua", fr: "eau" },
+      { es: "leche", fr: "lait" },
+      { es: "coche", fr: "voiture" },
+      { es: "arbol", fr: "arbre" },
+      { es: "perro", fr: "chien" },
+      { es: "gato", fr: "chat" },
+      { es: "uno", fr: "un" },
+      { es: "dos", fr: "deux" },
+      { es: "tres", fr: "trois" },
+      { es: "azul", fr: "bleu" },
+      { es: "rojo", fr: "rouge" },
+      { es: "verde", fr: "vert" },
+      { es: "negro", fr: "noir" },
+      { es: "blanco", fr: "blanc" },
+      { es: "amarillo", fr: "jaune" },
+      { es: "beber", fr: "boire" },
+      { es: "caminar", fr: "marcher" },
+      { es: "correr", fr: "courir" },
+      { es: "silla", fr: "chaise" },
+      { es: "mesa", fr: "table" },
+      { es: "ventana", fr: "fenetre" },
+      { es: "puerta", fr: "porte" },
+      { es: "telefono", fr: "telephone" },
+      { es: "musica", fr: "musique" },
+      { es: "trabajar", fr: "travailler" },
+      { es: "dormir", fr: "dormir" },
+      { es: "jugar", fr: "jouer" },
+      { es: "estudiar", fr: "etudier" },
+      { es: "querer", fr: "vouloir" },
+      { es: "poder", fr: "pouvoir" },
+      { es: "tiempo", fr: "temps" },
+      { es: "dia", fr: "jour" },
+      { es: "semana", fr: "semaine" },
+      { es: "mes", fr: "mois" },
+      { es: "ano", fr: "an" },
+      { es: "manana", fr: "demain" },
+      { es: "tarde", fr: "apres-midi" },
+      { es: "noche", fr: "nuit" },
+      { es: "abrir", fr: "ouvrir" },
+      { es: "cerrar", fr: "fermer" },
+      { es: "encender", fr: "allumer" },
+      { es: "apagar", fr: "eteindre" },
+      { es: "derecha", fr: "droite" },
+      { es: "izquierda", fr: "gauche" },
+      { es: "arriba", fr: "haut" },
+      { es: "abajo", fr: "bas" },
+      { es: "feliz", fr: "heureux" },
+      { es: "triste", fr: "triste" },
+      { es: "amor", fr: "amour" },
+      { es: "odio", fr: "haine" },
+      { es: "grande", fr: "grand" },
+      { es: "pequeno", fr: "petit" },
+      { es: "dinero", fr: "argent" },
+      { es: "nuevo", fr: "nouveau" },
+      { es: "viejo", fr: "vieux" },
+      { es: "caliente", fr: "chaud" },
+      { es: "frio", fr: "froid" },
+      { es: "rapido", fr: "rapide" },
+      { es: "lento", fr: "lent" },
+      { es: "facil", fr: "facile" },
+      { es: "dificil", fr: "difficile" },
+      { es: "joven", fr: "jeune" },
+      { es: "alto", fr: "grand (taille)" },
+      { es: "bajo", fr: "petit (taille)" },
+      { es: "hermoso", fr: "beau" },
+      { es: "feo", fr: "laid" },
+      { es: "importante", fr: "important" },
+      { es: "mano", fr: "main" },
+      { es: "ojo", fr: "oeil" },
+      { es: "cabeza", fr: "tete" },
+      { es: "pelo", fr: "cheveux" },
+      { es: "boca", fr: "bouche" },
+      { es: "nariz", fr: "nez" },
+      { es: "estomago", fr: "estomac" },
+      { es: "camisa", fr: "chemise" },
+      { es: "pantalon", fr: "pantalon" },
+      { es: "zapatos", fr: "chaussures" },
+      { es: "ciudad", fr: "ville" },
+      { es: "pais", fr: "pays" },
+      { es: "guerra", fr: "guerre" },
+      { es: "paz", fr: "paix" },
+      { es: "salud", fr: "sante" },
+      { es: "trabajo", fr: "travail" },
+      { es: "familia", fr: "famille" },
+      { es: "comida", fr: "nourriture" },
+      { es: "bebida", fr: "boisson" },
+      { es: "pero", fr: "mais" },
+      { es: "enero", fr: "janvier" },
+      { es: "febrero", fr: "fevrier" },
+      { es: "marzo", fr: "mars" },
+      { es: "abril", fr: "avril" },
+      { es: "mayo", fr: "mai" },
+      { es: "junio", fr: "juin" },
+      { es: "julio", fr: "juillet" },
+      { es: "agosto", fr: "aout" },
+      { es: "septiembre", fr: "septembre" },
+      { es: "octubre", fr: "octobre" },
+      { es: "noviembre", fr: "novembre" },
+      { es: "diciembre", fr: "decembre" },
+      { es: "primavera", fr: "printemps" },
+      { es: "verano", fr: "ete" },
+      { es: "otono", fr: "automne" },
+      { es: "invierno", fr: "hiver" },
+      { es: "me gusta", fr: "j'aime" },
+      { es: "muchos", fr: "beaucoup" },
+      { es: "parques", fr: "parcs" },
+      { es: "calle", fr: "rue" },
+      { es: "restaurante", fr: "restaurant" },
+      { es: "supermercado", fr: "supermarche" },
+      { es: "muy", fr: "tres" },
+      { es: "tiene", fr: "tient, a" },
+      { es: "terraza", fr: "terrasse" },
+      { es: "garaje", fr: "garage" },
+      { es: "jardin", fr: "jardin" },
+      { es: "bonito", fr: "beau" },
+      { es: "con", fr: "avec" },
+      { es: "solo", fr: "seul" },
+      { es: "pareja", fr: "partenaire" },
+      { es: "lejos", fr: "loin" },
+      { es: "piso", fr: "etage" },
+      { es: "apartamento", fr: "appartement" },
+      { es: "edificio", fr: "batiment" },
+      { es: "vivir", fr: "vivre" },
+      { es: "naranjas", fr: "oranges" },
+      { es: "mercados", fr: "marchés" },
+      { es: "kilos de", fr: "kilos de" },
+      { es: "bolsas", fr: "sacs" },
+      { es: "este", fr: "ce" },
+      { es: "mangos", fr: "mangues" },
+      { es: "pinas", fr: "ananas" },
+      { es: "naranja", fr: "orange" },
+      { es: "cuanto cuestan", fr: "coutent" },
+      { es: "mango", fr: "mangue" },
+      { es: "kilo de", fr: "kilo de" },
+      { es: "sandias", fr: "pasteques" },
+      { es: "necesitas", fr: "tu as besoin" },
+      { es: "duraznos", fr: "peches" },
+      { es: "mas", fr: "plus" },
+      { es: "botella", fr: "bouteille" },
+      { es: "bolsa", fr: "sac" },
+      { es: "mercado", fr: "marché" },
+      { es: "sandia", fr: "pasteque" },
+      { es: "cuanto cuesta", fr: "combien cela coute" },
+      { es: "cuanto", fr: "combien" },
+      { es: "pina", fr: "ananas" },
+      { es: "necesito", fr: "j'ai besoin" },
+      { es: "durazno", fr: "peche" },
+      { es: "buen tiempo", fr: "beau temps" },
+      { es: "mucho", fr: "beaucoup" },
+      { es: "sol", fr: "Soleil, soleil" },
+      { es: "alli", fr: "la-bas" },
+      { es: "hoy", fr: "aujourd'hui" },
+      { es: "no hace", fr: "il ne fait pas" },
+      { es: "traje de bano", fr: "maillot de bain" },
+      { es: "calor", fr: "chaleur, chaud" },
+      { es: "ahora", fr: "maintenant" },
+      { es: "abrigo", fr: "manteau" },
+      { es: "viento", fr: "vent" },
+      { es: "uso", fr: "j'utilise" },
+      { es: "hace", fr: "fait, il fait, faut" },
+      { es: "arte", fr: "art" },
+      { es: "por la noche", fr: "la nuit" },
+      { es: "estudias", fr: "tu etudies" },
+      { es: "hablas", fr: "tu parles" },
+      { es: "guau", fr: "waouh" },
+      { es: "por la manana", fr: "le matin" },
+      { es: "aleman", fr: "allemand" },
+      { es: "italiano", fr: "italien" },
+      { es: "un poco de", fr: "un peu de" },
+      { es: "frances", fr: "francais" },
+      { es: "ingles", fr: "anglais" },
+      { es: "genial", fr: "genial" },
+      { es: "hablar", fr: "parler" },
+      { es: "espanol", fr: "espagnol" },
+      { es: "portugues", fr: "portugais" },
+      { es: "y tu", fr: "et toi, Et toi" },
+      { es: "yo estudio", fr: "j'etudie" },
+      { es: "no hay", fr: "il n'y a pas" },
+      { es: "mira", fr: "regarde" },
+      { es: "estacionamiento", fr: "parking" },
+      { es: "hotel", fr: "hotel" },
+      { es: "libreria", fr: "librairie" },
+      { es: "pueblo", fr: "village" },
+      { es: "parque", fr: "parc" },
+      { es: "oye", fr: "entend, dis" },
+      { es: "en", fr: "au, a, en" },
+      { es: "barrio", fr: "quartier" },
+      { es: "centro comercial", fr: "centre commercial" },
+      { es: "estacion de metro", fr: "station de metro" },
+      { es: "cerca", fr: "pres d'ici" },
+      { es: "teatro", fr: "theatre" },
+      { es: "museo", fr: "musee" },
+      { es: "banco", fr: "banque" },
+      { es: "por aqui", fr: "par ici, Par ici" },
+      { es: "hay", fr: "il y a" },
+      { es: "cafeteria", fr: "cafe" },
+      { es: "panaderia", fr: "boulangerie" },
+      { es: "tienda", fr: "magasin" },
+      { es: "mochila", fr: "sac a dos" },
+      { es: "pues", fr: "puisque, puisqu'" },
+      { es: "tableta", fr: "tablette" },
+      { es: "ay", fr: "oh" },
+      { es: "no encuentro", fr: "je ne trouve pas" },
+      { es: "gorra", fr: "casquette" },
+      { es: "reloj", fr: "montre" },
+      { es: "cargador", fr: "chargeur" },
+      { es: "tranquila", fr: "calme" },
+      { es: "chaqueta", fr: "veste" },
+      { es: "donde", fr: "ou" },
+      { es: "vestido", fr: "robe" },
+      { es: "cartera", fr: "portefeuille" },
+      { es: "sueter", fr: "pull" },
+      { es: "esta", fr: "il est, est, elle est" },
+      { es: "tranquilo", fr: "calme" },
+      { es: "aqui", fr: "ici" },
+      { es: "maleta", fr: "valise" },
+      { es: "pasaporte", fr: "passeport" },
+      { es: "papa", fr: "pere" },
+      { es: "novio", fr: "petit ami" },
+      { es: "seria", fr: "serieuse" },
+      { es: "serio", fr: "serieux" },
+      { es: "tu", fr: "ton" },
+      { es: "gracioso", fr: "drole" },
+      { es: "graciosa", fr: "drole" },
+      { es: "novia", fr: "petite amie" },
+      { es: "simpatica", fr: "gentille" },
+      { es: "creo que", fr: "je crois que" },
+      { es: "en general", fr: "en general" },
+      { es: "timida", fr: "timide" },
+      { es: "esposa", fr: "femme" },
+      { es: "abuela", fr: "grand-mere" },
+      { es: "simpatico", fr: "gentil" },
+      { es: "no crees", fr: "ne crois tu pas" },
+      { es: "como yo", fr: "comme moi" },
+      { es: "esposo", fr: "mari" },
+      { es: "abuelo", fr: "grand-pere" },
+      { es: "timido", fr: "timide" },
+      { es: "tambien", fr: "aussi" },
+      { es: "companera de trabajo", fr: "collegue de travail" },
+      { es: "amiga", fr: "amie, copine" },
+      { es: "tia", fr: "tante" },
+      { es: "companero de trabajo", fr: "collegue de travail" },
+      { es: "tio", fr: "oncle" },
+      { es: "en realidad", fr: "en realite" },
+      { es: "una", fr: "une" },
+      { es: "solamente", fr: "seulement" },
+      { es: "hermana", fr: "soeur" },
+      { es: "hija", fr: "fille" },
+      { es: "tengo", fr: "ai, j'ai" },
+      { es: "hermano", fr: "frere" },
+      { es: "quiere", fr: "veut" },
+      { es: "hijo", fr: "fils" },
+      { es: "companero de cuarto", fr: "colocataire" },
+      { es: "no", fr: "non" },
+      { es: "es de", fr: "vient de" },
+      { es: "mi", fr: "mon" },
+      { es: "mama", fr: "mere" },
+      { es: "verdad", fr: "n'est-ce pas" },
+      { es: "eres de", fr: "es-tu d" },
+      { es: "si", fr: "oui" },
+      { es: "encantada", fr: "enchantee" },
+      { es: "alemania", fr: "allemagne" },
+      { es: "soy de", fr: "viens de" },
+      { es: "buenas tardes", fr: "bonsoir" },
+      { es: "encantado", fr: "enchante" },
+      { es: "de donde eres", fr: "d'ou es-tu" },
+      { es: "bien", fr: "bien" },
+      { es: "bienvenida", fr: "bienvenue" },
+      { es: "ella", fr: "elle" },
+      { es: "que tal", fr: "ca va" },
+      { es: "hasta luego", fr: "a bientot" },
+      { es: "mi mejor amiga", fr: "ma meilleure amie" },
+      { es: "el", fr: "il" },
+      { es: "mucho gusto", fr: "enchanter" },
+      { es: "mi mejor amigo", fr: "mon meilleur ami" },
+      { es: "es", fr: "est, c'est" },
+      { es: "jugo", fr: "jus" },
+      { es: "soy", fr: "je suis" },
+      { es: "buenos dias", fr: "bonjour" },
+      { es: "bienvenido", fr: "bienvenue" },
+      { es: "y", fr: "et" },
+      { es: "vaso de", fr: "verre de" },
+      { es: "chao", fr: "salut" },
+      { es: "perfecto", fr: "parfait" },
+      { es: "pan", fr: "pain" },
+      { es: "con azucar", fr: "avec du sucre" },
+      { es: "helado", fr: "glace" },
+      { es: "quieres", fr: "tu veux" },
+      { es: "o", fr: "ou" },
+      { es: "con hielo", fr: "avec des glacons" },
+      { es: "sandwich", fr: "sandwich" },
+      { es: "taco", fr: "taco" },
+      { es: "con leche", fr: "avec du lait" },
+      { es: "quiero", fr: "je veux" },
+      { es: "te", fr: "the" },
+      { es: "cafe", fr: "cafe" },
+    ];
+
+    /***************************************************
+     * 1.5) Afficher le nombre total
+     ***************************************************/
+    document.getElementById("dbWordCount").textContent = wordsDB.length;
+
+    /***************************************************
+     * 2) Variables globales
+     ***************************************************/
+    let currentIndex = 0;
+    let currentSeries = [];
+    let correctCount = 0;
+    let wrongCount = 0;
+    let totalWordsInSeries = 10;
+    let isSpanishToFrench = true;
+    let selectedOption = null;
+
+    /***************************************************
+     * 3) Sélection des éléments du DOM
+     ***************************************************/
+    const currentWordEl = document.getElementById("currentWord");
+    const newSeriesBtn = document.getElementById("newSeriesBtn");
+    const correctCountEl = document.getElementById("correctCount");
+    const wrongCountEl = document.getElementById("wrongCount");
+    const totalWordsEl = document.getElementById("totalWords");
+    const feedbackEl = document.getElementById("feedback");
+    const historyEl = document.getElementById("history");
+    const optionsContainer = document.getElementById("optionsContainer");
+    const progressFill = document.getElementById("progressFill");
+    const currentQuestionEl = document.getElementById("currentQuestion");
+    const totalQuestionsEl = document.getElementById("totalQuestions");
+    const darkModeToggle = document.getElementById("darkModeToggle");
+
+    /***************************************************
+     * 4) Fonctions utilitaires
+     ***************************************************/
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    /***************************************************
+     * 5) Nouvelle série
+     ***************************************************/
+    function startNewSeries() {
+      correctCount = 0;
+      wrongCount = 0;
+      correctCountEl.textContent = correctCount;
+      wrongCountEl.textContent = wrongCount;
+      totalWordsInSeries = 10;
+      totalWordsEl.textContent = totalWordsInSeries;
+      totalQuestionsEl.textContent = totalWordsInSeries;
+      
+      let shuffledWords = shuffleArray([...wordsDB]);
+      let countToPick = Math.min(totalWordsInSeries, shuffledWords.length);
+      currentSeries = shuffledWords.slice(0, countToPick);
+      currentIndex = 0;
+      historyEl.innerHTML = "";
+      
+      showNextWord();
+    }
+
+    /***************************************************
+     * 6) Afficher le mot actuel
+     ***************************************************/
+    function showNextWord() {
+      if (currentIndex >= currentSeries.length) {
+        currentWordEl.textContent = "Quiz terminé !";
+        optionsContainer.innerHTML = "";
+        feedbackEl.textContent = `Score final : ${correctCount}/${totalWordsInSeries}`;
+        feedbackEl.style.color = "var(--primary)";
+        feedbackEl.style.backgroundColor = "var(--gray-100)";
+        progressFill.style.width = "100%";
+        currentQuestionEl.textContent = currentIndex;
+        return;
+      }
+      
+      feedbackEl.textContent = "";
+      feedbackEl.style.backgroundColor = "";
+      selectedOption = null;
+      
+      // Mettre à jour la progression
+      currentQuestionEl.textContent = currentIndex + 1;
+      progressFill.style.width = `${((currentIndex) / totalWordsInSeries) * 100}%`;
+      
+      isSpanishToFrench = Math.random() < 0.5;
+      const wordData = currentSeries[currentIndex];
+      currentWordEl.textContent = isSpanishToFrench ? wordData.es : wordData.fr;
+      
+      // Générer les options
+      generateOptions(wordData);
+    }
+
+    /***************************************************
+     * 7) Générer les options de réponse
+     ***************************************************/
+    function generateOptions(correctWordData) {
+      optionsContainer.innerHTML = "";
+      
+      // Créer un tableau avec la bonne réponse et 3 fausses réponses
+      const options = [correctWordData];
+      
+      // Ajouter 3 réponses incorrectes aléatoires
+      const otherWords = shuffleArray([...wordsDB]).filter(
+        word => word !== correctWordData
+      ).slice(0, 3);
+      
+      options.push(...otherWords);
+      
+      // Mélanger les options
+      const shuffledOptions = shuffleArray(options);
+      
+      // Créer les boutons d'options
+      shuffledOptions.forEach(option => {
+        const button = document.createElement("button");
+        button.className = "option-btn";
+        button.textContent = isSpanishToFrench ? option.fr : option.es;
+        button.dataset.correct = (option === correctWordData).toString();
+        
+        button.addEventListener("click", () => {
+          // Désélectionner toutes les autres options
+          document.querySelectorAll(".option-btn").forEach(btn => {
+            btn.classList.remove("selected");
+          });
+          
+          // Sélectionner cette option
+          button.classList.add("selected");
+          selectedOption = button;
+          
+          // Valider automatiquement la réponse
+          validateAnswer();
+        });
+        
+        optionsContainer.appendChild(button);
+      });
+    }
+
+    /***************************************************
+     * 8) Validation de la réponse
+     ***************************************************/
+    function validateAnswer() {
+      if (!selectedOption) return;
+      
+      const isSelectedCorrect = selectedOption.dataset.correct === "true";
+      
+      // Désactiver tous les boutons
+      document.querySelectorAll(".option-btn").forEach(btn => {
+        btn.disabled = true;
+        if (btn.dataset.correct === "true") {
+          btn.classList.add("correct");
+        } else if (btn === selectedOption && !isSelectedCorrect) {
+          btn.classList.add("incorrect");
+        }
+      });
+      
+      if (isSelectedCorrect) {
+        correctCount++;
+        correctCountEl.textContent = correctCount;
+        feedbackEl.textContent = "Correct! Bien joué!";
+        feedbackEl.style.color = "var(--success)";
+        feedbackEl.style.backgroundColor = "rgba(6, 214, 160, 0.1)";
+      } else {
+        wrongCount++;
+        wrongCountEl.textContent = wrongCount;
+        feedbackEl.textContent = "Incorrect! Réessayez!";
+        feedbackEl.style.color = "var(--danger)";
+        feedbackEl.style.backgroundColor = "rgba(239, 71, 111, 0.1)";
+      }
+      
+      // Ajouter au historique
+      const wordData = currentSeries[currentIndex];
+      addToHistory(
+        isSpanishToFrench ? wordData.es : wordData.fr,
+        selectedOption.textContent,
+        isSpanishToFrench ? wordData.fr : wordData.es,
+        isSelectedCorrect
+      );
+      
+      // Passer à la question suivante après un délai
+      setTimeout(() => {
+        currentIndex++;
+        showNextWord();
+      }, 1500);
+    }
+
+    /***************************************************
+     * 9) Ajout dans l'historique
+     ***************************************************/
+    function addToHistory(originalWord, userAnswer, correctAnswer, isCorrect) {
+      const newEntry = document.createElement("p");
+      newEntry.innerHTML = `<i class="fas ${isCorrect ? 'fa-check-circle' : 'fa-times-circle'}"></i> ${originalWord} → ${userAnswer}`;
+      newEntry.className = isCorrect ? "correct" : "incorrect";
+      historyEl.appendChild(newEntry);
+      
+      // Scroll vers le bas de l'historique
+      historyEl.scrollTop = historyEl.scrollHeight;
+    }
+
+    /***************************************************
+     * 10) Gestion des événements
+     ***************************************************/
+    newSeriesBtn.addEventListener("click", startNewSeries);
+    
+    // Dark mode toggle
+    darkModeToggle.addEventListener("change", function() {
+      if (this.checked) {
+        document.body.classList.add("dark-mode");
+        localStorage.setItem("darkMode", "enabled");
+      } else {
+        document.body.classList.remove("dark-mode");
+        localStorage.setItem("darkMode", "disabled");
+      }
+    });
+    
+    // Check for saved dark mode preference
+    if (localStorage.getItem("darkMode") === "enabled") {
+      document.body.classList.add("dark-mode");
+      darkModeToggle.checked = true;
+    }
+    
+    /***************************************************
+     * 11) Démarrage
+     ***************************************************/
+    document.addEventListener("DOMContentLoaded", startNewSeries);
+  </script>
+</body>
+</html>
